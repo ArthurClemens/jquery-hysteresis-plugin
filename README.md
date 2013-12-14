@@ -2,6 +2,12 @@
 
 version 0.0.2
 
+
+## Demo
+See [demo code]( http://arthurclemens.github.io/jquery-hysteresis-plugin/).
+
+
+
 ## About
 
 Hysteresis adds a lag to controls to give the user more control over what happens on the screen.
