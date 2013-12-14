@@ -1,6 +1,6 @@
 # Hysteresis jQuery Plugin
 
-version 0.0.1
+version 0.0.2
 
 ## About
 
@@ -19,11 +19,11 @@ Initialize:
 
 Init options:
 
-    show: (required) function; params: element, event (if this was passed)
-    hide: (required) function; params: element, event (if this was passed)
-    inDelay: (required) delay in ms; default: 0
-    outDelay: (required) delay in ms; default: 0
-    debug: (optional) true or false; default: false
+* `show` (required) function; params: element, event (if this was passed)
+* `hide` (required) function; params: element, event (if this was passed)
+* `inDelay` (required) delay in ms; default: 0
+* `outDelay` (required) delay in ms; default: 0
+* `debug` (optional) true or false; default: false
 
 Commands:
 
@@ -37,19 +37,13 @@ Show is called after `inDelay` ms have passed; similar for hide and `outDelay`.
 
     $(".my-element").hysteresis({
         show: function(el, e) {
-            $(el)
-              .find(".scrollbar")
-              .removeClass("out")
-              .addClass("over");
+            $(el).addClass("over");
         },
         hide: function(el, e) {
-            $(el)
-              .find(".scrollbar.over")
-              .removeClass("over")
-              .addClass("out");
+            $(el).removeClass("over");
         },
-        inDelay: 200,
-        outDelay: 300,
+        inDelay: 0,
+        outDelay: 0,
         debug: false
     }).hover(function (e) {
         $(this).hysteresis("show", e);

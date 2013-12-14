@@ -1,30 +1,26 @@
+/*
+Hysteresis plugin for jQuery
+Version 0.0.2
+(c) 2013 Arthur Clemens arthur@visiblearea.com
+Released under MIT licence
+*/
+
 (function ($) {
     "use strict";
 
-    var init,
+    var DATA_KEY = "jquery-hysteresis-options",
+        init,
         show,
         hide,
         stop,
-        log,
-        defaultOptions = {
-            inDelay: 0,
-            outDelay: 0,
-            timer: -1,
-            debug: false,
-            show: function () {
-                log(true, "show function not set");
-            },
-            hide: function () {
-                log(true, "hide function not set");
-            }
-        };
+        log;
 
     init = function (el, options) {
-        $(el).data("jquery-hysteresis-options", $.extend(defaultOptions, options));
+        $(el).data(DATA_KEY, $.extend({}, $.fn.hysteresis.defaults, options));
     };
 
     show = function (el, event) {
-        var data = $(el).data("jquery-hysteresis-options");
+        var data = $(el).data(DATA_KEY);
         stop(el);
         log(data.debug, "showing after " + data.outDelay + " ms");
         data.timer = setTimeout(function () {
@@ -34,7 +30,7 @@
     };
 
     hide = function (el, event) {
-        var data = $(el).data("jquery-hysteresis-options");
+        var data = $(el).data(DATA_KEY);
         stop(el);
         log(data.debug, "hiding after " + data.outDelay + " ms");
         data.timer = setTimeout(function () {
@@ -44,8 +40,8 @@
     };
 
     stop = function (el, event) {
-        var data = $(el).data("jquery-hysteresis-options");
-        if (data.timer) {
+        var data = $(el).data(DATA_KEY);
+        if (data.timer !== -1) {
             log(data.debug, "stopping timer: " + data.timer);
             clearTimeout(data.timer);
             log(data.debug, "stopped");
@@ -82,6 +78,19 @@
                     stop(this, option);
                 });
             }
+        }
+    };
+    
+    $.fn.hysteresis.defaults = {
+        inDelay: 0,
+        outDelay: 0,
+        timer: -1,
+        debug: false,
+        show: function () {
+            log(true, "show function not set");
+        },
+        hide: function () {
+            log(true, "hide function not set");
         }
     };
 
