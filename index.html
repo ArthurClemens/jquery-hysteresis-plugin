@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+
+	<title>ArthurClemens/jquery-hysteresis-plugin @ GitHub</title>
+    <link rel="stylesheet" href="css/docs.css">
+    
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src='js/jquery.hysteresis.js' type='text/javascript'></script>
+	
+	<script type='text/javascript'>
+		// <![CDATA[
+		
+		jQuery(document).ready(function($) {
+
+			$(".menu1 > ul > li").hysteresis({
+                show: function(el, e) {
+                    $(el).addClass("over");
+                },
+                hide: function(el, e) {
+                    $(el).removeClass("over");
+                },
+                inDelay: 0,
+                outDelay: 0,
+                debug: false
+            }).hover(function (e) {
+                $(this).hysteresis("show", e);
+            }, function (e) {
+                $(this).hysteresis("hide", e);
+            });
+            
+            $(".menu2 > ul > li").hysteresis({
+                show: function(el, e) {
+                    $(el).addClass("over");
+                },
+                hide: function(el, e) {
+                    $(el).removeClass("over");
+                },
+                inDelay: 100,
+                outDelay: 400,
+                debug: false
+            }).hover(function (e) {
+                $(this).hysteresis("show", e);
+            }, function (e) {
+                $(this).hysteresis("hide", e);
+            });
+            
+            $(".menu3 > ul > li").hysteresis({
+                show: function(el, e) {
+                    $(el).addClass("over");
+                },
+                hide: function(el, e) {
+                    $(el).removeClass("over");
+                },
+                inDelay: 200,
+                outDelay: 300,
+                debug: false
+            }).hover(function (e) {
+                $(this).hysteresis("show", e);
+            }, function (e) {
+                $(this).hysteresis("hide", e);
+            });
+			
+		});
+		
+		// ]]>
+	</script>
+    <style type="text/css">
+        .menu {
+            margin: 0 0 30px 0;
+        }
+        .menu ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .menu ul li {
+            float: left;
+            margin: 0;
+            padding: 0;
+            height: 80px;
+            width: 80px;
+            line-height: 80px;
+            text-align: center;
+            cursor: pointer;
+            background: #eee;
+        }
+        .menu ul li + li {
+            margin: 0 0 0 15px;
+        }
+        .menu ul li.over {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+	<span id="top"></span>
+	<a href="https://github.com/ArthurClemens/jquery-hysteresis-plugin"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+
+	<div class="container">
+
+		<h1>jQuery Hysteresis plugin</h1>
+
+		<div class="description">
+			Hysteresis adds a lag to controls to give the user more control over what happens on the screen.
+			This little plugin manages timings when you process interface events.
+		</div>
+		
+		<p class="section">
+			<b>Example usage:</b>
+		</p>
+<pre>
+$(".menu > ul > li").hysteresis({
+    show: function(el, e) {
+        $(el).addClass("over");
+    },
+    hide: function(el, e) {
+        $(el).removeClass("over");
+    },
+    inDelay: 200,
+    outDelay: 300
+});
+$(".menu > ul > li").hover(function (e) {
+    $(this).hysteresis("show", e);
+}, function (e) {
+    $(this).hysteresis("hide", e);
+});
+</pre>
+
+		<div class="description">
+			inDelay: 0, outDelay: 0
+		</div>
+
+        <div class="menu menu1 clearfix">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+        </div>
+        
+        <div class="description">
+			inDelay: 100, outDelay: 400
+		</div>
+
+        <div class="menu menu2 clearfix">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+        </div>
+        
+        <div class="description">
+			inDelay: 200, outDelay: 300
+		</div>
+
+        <div class="menu menu3 clearfix">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+		<div class="footer">
+			Get the source code on GitHub : <a href="https://github.com/ArthurClemens/jquery-hysteresis-plugin">ArthurClemens/jquery-hysteresis-plugin</a>
+		</div>
+	</div>
+</body>
+</html>
