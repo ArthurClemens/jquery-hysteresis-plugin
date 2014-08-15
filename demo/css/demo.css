@@ -1,0 +1,25 @@
+.menu {
+    margin: 0 0 30px 0;
+}
+.menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.menu ul li {
+    float: left;
+    margin: 0;
+    padding: 0;
+    height: 80px;
+    width: 80px;
+    line-height: 80px;
+    text-align: center;
+    cursor: pointer;
+    background: #eee;
+}
+.menu ul li + li {
+    margin: 0 0 0 15px;
+}
+.menu ul li.over {
+    background: #ccc;
+}
