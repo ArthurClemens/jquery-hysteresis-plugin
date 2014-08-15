@@ -1,20 +1,15 @@
 # Hysteresis jQuery Plugin
 
-version 0.0.2
-
-
-## Demo
-See [demo code]( http://arthurclemens.github.io/jquery-hysteresis-plugin/).
-
-
-
-## About
-
 Hysteresis adds a lag to controls to give the user more control over what happens on the screen.
+
+Common use is when a user leaves an opened menu item, to keep it open for a short time. The user can choose to move back to the menu item before it disappears.
 
 > A menu that was drawn in response to a mouse-over event may remain on-screen for a brief moment after the mouse has moved out of the trigger region and the menu region. This allows the user to move the mouse directly to an item on the menu, even if part of that direct mouse path is outside of both the trigger region and the menu region. -- [Wikipedia](http://en.wikipedia.org/wiki/Hysteresis)
 
-This little plugin manages timings when you process interface events.
+
+
+## Demo
+See [demo page]( http://arthurclemens.github.io/jquery-hysteresis-plugin/).
 
 
 ## Usage
